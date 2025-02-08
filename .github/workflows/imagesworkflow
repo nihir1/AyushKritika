@@ -1,0 +1,27 @@
+name: Image Upload Workflow
+
+on:
+  push:
+    paths:
+      - '**/*.html'  # HTML files
+      - '**/*.jpg'   # JPG images
+      - '**/*.png'   # PNG images
+      - '**/*.gif'   # GIF images
+      - 'images/*'  # If images are in a specific folder like 'assets/images'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Run your image-related task
+        run: |
+          echo "Run any image-related tasks here"
